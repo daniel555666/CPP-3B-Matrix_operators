@@ -38,7 +38,6 @@ Matrix Matrix::operator+(const Matrix &other) const
     }
     return Matrix(temp, this->rows, this->cols);
 }
-
 Matrix Matrix::operator-() const
 {
 
@@ -49,7 +48,6 @@ Matrix Matrix::operator-() const
     }
     return Matrix(temp, this->rows, this->cols);
 }
-
 Matrix &Matrix::operator+=(const Matrix &other)
 {
     if (this->cols != other.cols || this->rows != other.rows)
@@ -62,11 +60,11 @@ Matrix &Matrix::operator+=(const Matrix &other)
     }
     return *this;
 }
-
 Matrix Matrix::operator-(const Matrix &other) const
 {
     return (*this) + (-other);
 }
+Matrix Matrix::operator+() const { return *this; }
 Matrix &Matrix::operator-=(const Matrix &other)
 {
     return (*this) += (-other);
@@ -80,7 +78,6 @@ Matrix &Matrix::operator++()
     }
     return *this;
 }
-
 Matrix &Matrix::operator--()
 {
     for (size_t i = 0; i < this->arr.size(); i++)
@@ -89,7 +86,6 @@ Matrix &Matrix::operator--()
     }
     return *this;
 }
-Matrix Matrix::operator+() const { return *this; }
 Matrix Matrix::operator++(int right)
 {
     Matrix temp(this->arr, this->rows, this->cols);
@@ -102,7 +98,6 @@ Matrix Matrix::operator--(int right)
     --(*this);
     return temp;
 }
-
 bool Matrix::operator==(const Matrix &other) const
 {
     if (this->cols != other.cols || this->rows != other.rows)
@@ -250,6 +245,13 @@ Matrix &Matrix::operator*=(const Matrix &other)
     return *this;
 }
 
+/**
+ * @brief splite to strings by a char and insert to vector
+ * 
+ * @param input the string to split
+ * @param splitChar char to split by
+ * @return vector<string> 
+ */
 vector<string> Matrix::split(string input, char splitChar)
 {
     vector<string> temp;

@@ -13,7 +13,6 @@ namespace zich{
             vector<double>arr;
             size_t rows;
             size_t cols;
-            static void checkThrow(Matrix a,Matrix b);
 
         public:
             Matrix(const vector<double> &arr,int row,int col);
